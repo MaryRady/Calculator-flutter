@@ -10,50 +10,48 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
+  // ignore: non_constant_identifier_names
   Widget Button(Color shapebackground, Color textColor, String btext) {
     if (btext != '0') {
-      return Container(
-          child: RawMaterialButton(
-        // constraints: BoxConstraints(minWidth: 1, maxWidth: 15),
-        onPressed: () {
-          Calculator(btext);
-        },
-        shape: CircleBorder(),
-        fillColor: shapebackground,
-        child: Padding(
-          padding: const EdgeInsets.all(15),
-          child: Text(
-            btext,
-            style: TextStyle(
-              color: textColor,
-              fontSize: 25,
-            ),
-          ),
+      return RawMaterialButton(
+              // constraints: BoxConstraints(minWidth: 1, maxWidth: 15),
+              onPressed: () {
+      calculator(btext);
+              },
+              shape: const CircleBorder(),
+              fillColor: shapebackground,
+              child: Padding(
+      padding: const EdgeInsets.all(15),
+      child: Text(
+        btext,
+        style: TextStyle(
+          color: textColor,
+          fontSize: 25,
         ),
-      ));
+      ),
+              ),
+            );
     } else {
-      return Container(
-          child: RawMaterialButton(
-        // constraints: BoxConstraints(minWidth: 1, maxWidth: 15),
-        onPressed: () {
-          // Calculator
-          Calculator(btext);
-        },
-        shape: StadiumBorder(),
-        fillColor: shapebackground,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(34, 20, 128, 20),
-          child: Text(
-            btext,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: textColor,
-              fontSize: 25,
-            ),
-          ),
+      return RawMaterialButton(
+              // constraints: BoxConstraints(minWidth: 1, maxWidth: 15),
+              onPressed: () {
+      // Calculator
+      calculator(btext);
+              },
+              shape: const StadiumBorder(),
+              fillColor: shapebackground,
+              child: Padding(
+      padding: const EdgeInsets.fromLTRB(34, 20, 128, 20),
+      child: Text(
+        btext,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: textColor,
+          fontSize: 25,
         ),
-      ));
+      ),
+              ),
+            );
     }
   }
 
@@ -65,12 +63,13 @@ class _HomePageState extends State<HomePage> {
   String opr = ''; // mn el kybord
   // dynamic preOpr = '';
 
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Kscolor,
         appBar: AppBar(
-          title: Text('Calculator'),
+          title: const Text('Calculator'),
           centerTitle: true,
           backgroundColor: Kscolor,
         ),
@@ -81,10 +80,10 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(9.0),
+                  padding: const EdgeInsets.all(9.0),
                   child: Text(
-                    '$finalResult',
-                    style: TextStyle(
+                    finalResult,
+                    style: const TextStyle(
                       color: Rcolor,
                       fontSize: 60,
                     ),
@@ -101,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                 Button(buttoncolor, Rcolor, '/'),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -113,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                 Button(buttoncolor, Rcolor, 'x'),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -125,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                 Button(buttoncolor, Rcolor, '-'),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -137,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                 Button(buttoncolor, Rcolor, '+'),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -148,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                 Button(buttoncolor, Rcolor, '='),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           ],
@@ -157,7 +156,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Calculator(String btext) {
+  calculator(String btext) {
     if (btext == "C") {
       // el natge
       finalResult = '0';
@@ -179,7 +178,7 @@ class _HomePageState extends State<HomePage> {
         result.toString().substring(1);
         finalResult = result;
       } else {
-        result = '-' + result;
+        result = '-$result';
         finalResult = result;
       }
     } else if (btext == '%') {

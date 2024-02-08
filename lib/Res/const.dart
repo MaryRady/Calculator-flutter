@@ -5,6 +5,7 @@ const Rcolor = Colors.white;
 const backgroundBUcolor = Color(0xFFA0A0A0);
 const buttoncolor = Color(0xFFF69A06);
 const gcolor = Color(0xFF313131);
+// const gcolor = Color.fromARGB(255, 1, 90, 81);
 const List<String> symbol = [
   'AC',
   '+/-',
